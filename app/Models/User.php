@@ -8,20 +8,22 @@ class User
 
   public $last_name;
 
+  public $email;
+
   public function setFirstName($firstName)
   {
-    $this->first_name = $firstName;
+    $this->first_name = trim($firstName);
   }
 
   public function getFirstName()
   {
-    // return 'billy';
+
     return $this->first_name;
   }
 
   public function setLastName($lastName)
   {
-    $this->last_name = $lastName;
+    $this->last_name = trim($lastName);
   }
 
   public function getLastName()
@@ -32,5 +34,23 @@ class User
   public function getFullName()
   {
     return $this->first_name . " " . $this->last_name;
+  }
+
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
+
+  public function getEmail()
+  {
+    return $this->email;
+  }
+
+  public function getEmailVariables()
+  {
+    return [
+      'email' => $this->getEmail(),
+      'fullName' => $this->getFullName(),
+    ];
   }
 }
